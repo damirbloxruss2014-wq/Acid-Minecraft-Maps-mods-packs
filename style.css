@@ -1,9 +1,11 @@
 :root {
-    --bg: #0b0b0b;
-    --card-bg: #161616;
+    --bg: #050505; /* Сделал чуть темнее для контраста */
+    --card-bg: #111111;
     --neon-green: #39ff14;
     --neon-pink: #ff00ff;
+    --neon-blue: #00e5ff;
     --text: #ffffff;
+    --transition: all 0.3s ease;
 }
 
 body {
@@ -20,10 +22,12 @@ body {
     padding: 0 20px;
 }
 
+/* ШАПКА */
 header {
     background: #000;
     padding: 20px 0;
     border-bottom: 2px solid var(--neon-green);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
 }
 
 nav {
@@ -33,108 +37,165 @@ nav {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-.logo span { color: var(--neon-green); }
+.logo span { 
+    color: var(--neon-green); 
+    text-shadow: 0 0 10px var(--neon-green);
+}
 
-nav ul { display: flex; list-style: none; padding: 0; }
+nav ul { display: flex; list-style: none; padding: 0; margin: 0; }
 nav ul li { margin-left: 25px; }
-nav ul li a { color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s; }
-nav ul li a:hover { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
+nav ul li a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: var(--transition); 
+}
 
+nav ul li a:hover { 
+    color: var(--neon-green); 
+    text-shadow: 0 0 15px var(--neon-green); 
+}
+
+/* ЗАГОЛОВОК СЕКЦИИ */
 .section-title {
     text-align: center;
-    margin: 50px 0;
-    font-size: 32px;
+    margin: 60px 0 40px;
+    font-size: 38px;
     color: var(--neon-pink);
-    text-shadow: 0 0 10px var(--neon-pink);
+    text-transform: uppercase;
+    text-shadow: 0 0 20px var(--neon-pink);
 }
 
+/* СЕТКА КАРТОЧЕК */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
 
+/* САМА КАРТОЧКА */
 .card {
     background: var(--card-bg);
     border-radius: 15px;
     overflow: hidden;
-    border: 1px solid #333;
-    transition: 0.3s;
+    border: 1px solid #222;
+    transition: var(--transition);
+    
+    /* Магия выравнивания: */
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
 }
 
 .card:hover {
     transform: translateY(-10px);
     border-color: var(--neon-green);
-    box-shadow: 0 10px 30px rgba(57, 255, 20, 0.2);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
 }
 
-/* ФИКС КАРТИНКИ: теперь она не на весь экран */
+/* КАРТИНКА В КАРТОЧКЕ */
 .card-image {
     width: 100%;
     height: 200px;
+    min-height: 200px;
     overflow: hidden;
-    background: #222;
+    background: #1a1a1a;
 }
 
 .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: var(--transition);
 }
 
-.card-content { padding: 20px; }
+.card:hover .card-image img {
+    transform: scale(1.1); /* Легкий зум при наведении */
+}
 
-.tags { margin-bottom: 15px; }
+/* КОНТЕНТ КАРТОЧКИ */
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Заставляет контент растягиваться на всю высоту */
+}
+
+.card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+}
+
+.card-content p {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Пушит кнопку вниз */
+}
+
+/* ТЕГИ */
+.tags { margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 8px; }
 .tag {
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 5px;
-    margin-right: 5px;
-    font-weight: bold;
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
-.green { background: var(--neon-green); color: #000; }
-.pink { background: var(--neon-pink); color: #fff; }
-.blue { background: #00e5ff; color: #000; }
+.green { background: var(--neon-green); color: #000; box-shadow: 0 0 10px rgba(57, 255, 20, 0.4); }
+.pink { background: var(--neon-pink); color: #fff; box-shadow: 0 0 10px rgba(255, 0, 255, 0.4); }
+.blue { background: var(--neon-blue); color: #000; box-shadow: 0 0 10px rgba(0, 229, 255, 0.4); }
 
+/* КНОПКА СКАЧАТЬ */
 .btn-link {
-    display: inline-block;
+    display: block;
     width: 100%;
+    box-sizing: border-box;
     text-align: center;
-    padding: 12px 0;
+    padding: 14px 0;
     background: transparent;
     color: var(--neon-green);
     border: 2px solid var(--neon-green);
     text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    margin-top: 15px;
-    transition: 0.3s;
+    font-weight: 800;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    
+    /* Фиксация внизу: */
+    margin-top: auto; 
 }
 
 .btn-link:hover {
     background: var(--neon-green);
     color: #000;
-    box-shadow: 0 0 20px var(--neon-green);
+    box-shadow: 0 0 25px var(--neon-green);
 }
 
 .disabled {
-    border-color: #555;
+    border-color: #333;
     color: #555;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
+/* ПОДВАЛ */
 footer {
     text-align: center;
-    padding: 40px;
-    color: #666;
-    font-size: 14px;
+    padding: 50px 20px;
+    border-top: 1px solid #222;
+    color: #444;
+    font-size: 13px;
+    letter-spacing: 1px;
 }
