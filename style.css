@@ -1,59 +1,140 @@
-/* Делаем картинки красивыми внутри карточек */
+:root {
+    --bg: #0b0b0b;
+    --card-bg: #161616;
+    --neon-green: #39ff14;
+    --neon-pink: #ff00ff;
+    --text: #ffffff;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background: #000;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--neon-green);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo span { color: var(--neon-green); }
+
+nav ul { display: flex; list-style: none; padding: 0; }
+nav ul li { margin-left: 25px; }
+nav ul li a { color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav ul li a:hover { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
+
+.section-title {
+    text-align: center;
+    margin: 50px 0;
+    font-size: 32px;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-green);
+    box-shadow: 0 10px 30px rgba(57, 255, 20, 0.2);
+}
+
+/* ФИКС КАРТИНКИ: теперь она не на весь экран */
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #222;
+}
+
 .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Стили для кнопки-ссылки */
-.btn-link {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    padding: 12px;
-    margin-top: 10px;
-    border: 2px solid var(--neon-green);
-    color: var(--neon-green);
+.card-content { padding: 20px; }
+
+.tags { margin-bottom: 15px; }
+.tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
     font-weight: bold;
-    transition: 0.3s;
+    text-transform: uppercase;
 }
 
-.btn-link:hover {
-    background: var(--neon-green);
-    color: black;
-    box-shadow: 0 0 20px var(--neon-green);
-}
+.green { background: var(--neon-green); color: #000; }
+.pink { background: var(--neon-pink); color: #fff; }
+.blue { background: #00e5ff; color: #000; }
 
-/* Плавный скролл по разделам */
-html {
-    scroll-behavior: smooth;
-}/* Делаем картинки красивыми внутри карточек */
-.card-image img {
+.btn-link {
+    display: inline-block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Стили для кнопки-ссылки */
-.btn-link {
-    display: block;
     text-align: center;
-    text-decoration: none;
-    padding: 12px;
-    margin-top: 10px;
-    border: 2px solid var(--neon-green);
+    padding: 12px 0;
+    background: transparent;
     color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    text-decoration: none;
     font-weight: bold;
+    border-radius: 8px;
+    margin-top: 15px;
     transition: 0.3s;
 }
 
 .btn-link:hover {
     background: var(--neon-green);
-    color: black;
+    color: #000;
     box-shadow: 0 0 20px var(--neon-green);
 }
 
-/* Плавный скролл по разделам */
-html {
-    scroll-behavior: smooth;
+.disabled {
+    border-color: #555;
+    color: #555;
+    cursor: not-allowed;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 14px;
 }
