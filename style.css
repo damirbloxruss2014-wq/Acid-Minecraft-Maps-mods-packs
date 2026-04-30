@@ -74,12 +74,12 @@ nav ul li a:hover {
     text-shadow: 0 0 20px var(--neon-pink);
 }
 
-/* СЕТКА КАРТОЧЕК */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 80px;
+    /* auto-fill заполнит строку, а minmax не даст карточке быть уже 300px */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 30px; /* Расстояние между карточками */
+    margin-bottom: 50px;
 }
 
 /* САМА КАРТОЧКА */
