@@ -3,52 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACID MODS — Твои любимые моды и карты</title>
-    <meta name="description" content="Лучшие постройки и моды в уникальном кислотном дизайне.">
+    <title>ACID Mods — Мастерская Minecraft</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo">ACID<span>MODS</span></div>
+    <header>
         <nav>
-            <a href="#">Моды</a>
-            <a href="#">Карты</a>
-            <a href="#">Паки</a>
+            <div class="logo">ACID<span>PROJECT</span></div>
+            <ul>
+                <li><a href="#mods">Моды</a></li>
+                <li><a href="#maps">Карты</a></li>
+                <li><a href="#packs">Ресурспаки</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <h1 class="title">Свежие релизы</h1>
-        
+    <section id="mods" class="container">
+        <h2 class="section-title">Лучшие Моды</h2>
         <div class="grid">
+            
             <div class="card">
-                <div class="card-image"></div>
+                <div class="card-image">
+                    <img src="img/worldedit.png" alt="WorldEdit">
+                </div>
                 <div class="card-content">
-                    <h3>Neon City Map</h3>
-                    <p>Потрясающая карта города в стиле киберпанк.</p>
                     <div class="tags">
-                        <span class="tag green">Карты</span>
-                        <span class="tag pink">1.20.1</span>
+                        <span class="tag green">1.16.5</span>
+                        <span class="tag pink">Forge / Fabric</span>
                     </div>
-                    <button class="btn">СКАЧАТЬ</button>
+                    <h3>WorldEdit</h3>
+                    <p>Незаменимый инструмент для строительства. Создавай сферы, стены и копируй постройки за одну секунду!</p>
+                    <a href="https://disk.yandex.ru/d/jTyqY_bCa25MDA" class="btn-link" target="_blank">СКАЧАТЬ</a>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-image"></div>
+                <div class="card-image">
+                    <img src="img/placeholder.png" alt="Скоро">
+                </div>
                 <div class="card-content">
-                    <h3>Acid Resource Pack</h3>
-                    <p>Заменяет все текстуры на неоновые.</p>
-                    <div class="tags">
-                        <span class="tag green">Текстуры</span>
-                        <span class="tag pink">1.19+</span>
-                    </div>
-                    <button class="btn">СКАЧАТЬ</button>
+                    <div class="tags"><span class="tag blue">В разработке</span></div>
+                    <h3>Новый мод</h3>
+                    <p>Здесь скоро появится еще один крутой мод. Следи за обновлениями!</p>
+                    <a href="#" class="btn-link disabled">СКОРО</a>
                 </div>
             </div>
+
         </div>
-    </main>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ACID PROJECT. Сделано для игроков Minecraft.</p>
+    </footer>
 
 </body>
 </html>
