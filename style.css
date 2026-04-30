@@ -199,3 +199,43 @@ footer {
     font-size: 13px;
     letter-spacing: 1px;
 }
+/* СТИЛИ ДЛЯ ПЯТЕН */
+.blob {
+    position: fixed; /* Чтобы они не улетали при скролле */
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(80px); /* Главный секрет: сильное размытие */
+    z-index: -1; /* Уводим на самый задний план, за текст */
+    opacity: 0.15; /* Делаем их мягкими, чтобы не мешали читать */
+    pointer-events: none; /* Чтобы по ним нельзя было кликнуть */
+}
+
+/* Пятно 1: Зеленое слева сверху */
+.blob-1 {
+    top: -100px;
+    left: -100px;
+    background: var(--neon-green);
+}
+
+/* Пятно 2: Розовое справа в центре */
+.blob-2 {
+    top: 40%;
+    right: -150px;
+    background: var(--neon-pink);
+}
+
+/* Пятно 3: Голубое слева снизу */
+.blob-3 {
+    bottom: -100px;
+    left: 20%;
+    background: var(--neon-blue);
+    width: 500px;
+    height: 500px;
+}
+
+/* Фикс для body, чтобы пятна не создавали полосу прокрутки */
+body {
+    overflow-x: hidden;
+    position: relative;
+}
